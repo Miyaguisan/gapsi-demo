@@ -1,0 +1,10 @@
+{
+    "providers": [
+        {
+            "id": "1",
+            "name": "A",
+            "businessName": "A",
+            "address": "A"
+        }
+    ]
+}
