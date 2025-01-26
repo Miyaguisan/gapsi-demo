@@ -129,17 +129,19 @@ const ProviderResolver = {
             * Si el proveedor no existe, no se puede eliminar.
             * Verificamos el ID para saber si el proveedor existe.
             */
-            const provider_index = data.providers.findIndex( provider => provider.id === id );
+            const provider_index = data.providers.findIndex( provider => `${provider.id}` === `${id}` );
     
             if ( provider_index !== -1 ) {
+                let deleted_provider = data.providers[provider_index];
+
                 data.providers.splice( provider_index, 1 );
-    
+
                 fs.writeFileSync( PROVIDERS_FILE, JSON.stringify(data, null, 4) );
-    
-                return true;
+
+                return deleted_provider;
             }
     
-            return false;
+            return null;
         },
     }
 };
