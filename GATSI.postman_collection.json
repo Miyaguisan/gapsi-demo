@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "4c883554-2946-4eb8-8f46-e607bf4d1ef1",
+		"name": "GATSI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5014516"
+	},
+	"item": [
+		{
+			"name": "Listar Candidatos",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n\t\tlistCandidates {\r\n            id\r\n            name\r\n            lastName\r\n            maidenName\r\n            email\r\n        }\r\n\t}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Candidato [id]",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n\t\tviewCandidate(id: \"1\") {\r\n            id\r\n            name\r\n            lastName\r\n            maidenName\r\n            email\r\n        }\r\n\t}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Proveedor",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n\t\tcreateProvider(input: {name: \"Nuevo P\", businessName: \"NP1\", address: \"Conocida ,#123 Morelia, Michoacán\"}) {\r\n            id\r\n            name\r\n            businessName\r\n            address\r\n        }\r\n\t}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Proveedor",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n\t\tupdateProvider(id: \"1\", input: {name: \"Nuevo P Actualizado\", businessName: \"NP1\", address: \"Conocida ,#123 Morelia, Michoacán\"}) {\r\n            id\r\n            name\r\n            businessName\r\n            address\r\n        }\r\n\t}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Proveedor [id]",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n\t\tdeleteProvider(id: 1) {\r\n            id\r\n            name\r\n            businessName\r\n            address\r\n        }\r\n\t}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver propiedad de Sistema",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n\t\tviewSystem(property: \"version\") {\r\n            version\r\n        }\r\n\t}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,3 +1,22 @@
 {
-    "providers": []
+    "providers": [
+        {
+            "id": "1",
+            "name": "NINTENDO",
+            "businessName": "NINTENDO Co. LLC",
+            "address": "4600 150th Ave NE Redmond, WA 98052"
+        },
+        {
+            "id": "2",
+            "name": "Microsoft",
+            "businessName": "Microsoft LLC",
+            "address": "500 acres in Redmond, Washington"
+        },
+        {
+            "id": "3",
+            "name": "Sony",
+            "businessName": "Sony Co.",
+            "address": "25 Madison Ave, New York, NY 10010, United States"
+        }
+    ]
 }

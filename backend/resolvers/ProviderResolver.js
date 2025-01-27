@@ -43,13 +43,35 @@ const getLastID = ( data ) => {
 */
 const ProviderResolver = {
     Query: {
-        listProviders: (_, { limit, offset }) => {
+        listProviders: (_, { limit=10, offset=0 }) => {
             const data = loadJSONFile( PROVIDERS_FILE );
+            
+            const total_providers = data.providers.length;
+            const total_pages = limit ? Math.ceil( total_providers / limit ) : 1;
 
-            const start = offset || 0;
-            const end = limit ? start + limit : data.length;
+            limit = Math.min( limit, total_providers );
 
-            return data.slice( start, end );
+            let start = offset;
+            let end = start + limit;
+
+            /*
+            * Validación:
+            *
+            * Si el offset es mayor o igual al total de proveedores, se ajusta el offset.
+            * Esto evitará paginaciones vacías.
+            */
+            if ( start >= total_providers ) {
+                start = Math.max( total_providers - limit, 0 );
+                end = total_providers;
+            }
+            
+            const trimmed_providers = data.providers.slice( start, end );
+
+            return {
+                providers: trimmed_providers,
+                pages: total_pages,
+                items: total_providers,
+            };
         },
         viewProvider: ( _, args ) => {
             const { id } = args;
