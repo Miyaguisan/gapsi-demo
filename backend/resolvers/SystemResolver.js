@@ -12,15 +12,18 @@ const SYSTEM_FILE = path.resolve(__dirname, '../data/system.json');
 */
 const SystemResolver = {
     Query: {
-        viewSystem: ({ property }) => {
-            const system_data = loadJSONFile();
+        viewSystem: (_, { property }) => {
+            const system_data = loadJSONFile( SYSTEM_FILE );
 
-            if ( system_data.hasOwnProperty( property ) ) {
-                return system_data[property];
+            const keys = Object.keys( system_data );
+
+            if ( system_data.system.hasOwnProperty( property ) ) {
+                return system_data.system[property];
             }
     
-            // Si la propiedad no se encuentra, puedes devolver un valor específico.
-            // Puedes lanzar un error o devolver un mensaje indicando que no existe.
+            /*
+            * Propiedad no encontrada en el sistema.
+            */
             return `Property '${property}' not found in the system.`;
         }
     }
