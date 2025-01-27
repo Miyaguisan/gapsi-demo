@@ -1,0 +1,83 @@
+.custom-modal {
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.25);
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, transform 0.3s;
+	z-index: 10;
+}
+
+.custom-modal:not(:last-child) > .modal-content {
+	transform: scale(0.85);
+}
+
+.custom-modal.transparent {
+	background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.custom-modal.hidden {
+	opacity: 0;
+}
+
+.custom-modal.hidden * {
+	pointer-events: none !important;
+}
+
+.custom-modal.hidden > .modal-content {
+	transform: scale(0.85);
+}
+
+.custom-modal > .modal-content {
+	background-color: #ffffff;
+	border-radius: 8pt;
+	display: flex;
+	flex-direction: column;
+	max-width: 650px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transition: transform 0.3s;
+	width: 100%;
+}
+
+.custom-modal > .modal-content.large {
+	max-width: 800px;
+}
+
+.custom-modal > .modal-content > .modal-header {
+	align-items: center;
+	background-color: #DADADA;
+	display: flex;
+	flex-direction: row;
+	gap: 4pt;
+	height: 50px;
+	width: 100%;
+}
+
+.custom-modal > .modal-content > .modal-header * {
+	color: #000000;
+	font-weight: bold;
+}
+
+.custom-modal > .modal-content > .modal-header > .title {
+	font-size: 12pt;
+	font-weight: 500;
+	flex: 1;
+	padding-left: 8pt;
+}
+
+.custom-modal > .modal-content > .modal-body {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	gap: 8pt;
+	padding: 16pt;
+}
+
+.custom-modal form.modal-body > button.action-text:first-of-type {
+    margin-top: 24pt;
+}

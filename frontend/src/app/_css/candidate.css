@@ -1,0 +1,4 @@
+.candidate-avatar {
+    border: 3px solid var(--gapsi-blue);
+    object-fit: cover;
+}

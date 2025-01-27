@@ -1,0 +1,86 @@
+#notification-container {
+	display: flex;
+	flex-direction: column;
+	gap: 8pt;
+	max-width: 414px;
+	max-height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+}
+
+#notification-container.bottom-left {
+	bottom: 8pt;
+	left: 8pt;
+}
+
+#notification-container.bottom-right {
+	bottom: 8pt;
+	right: 8pt;
+}
+
+#notification-container.top-left {
+	top: 8pt;
+	left: 8pt;
+}
+
+#notification-container.top-right {
+	top: 8pt;
+	right: 8pt;
+}
+
+.custom-notification {
+	background-color: #fff;
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	gap: 8pt;
+	max-width: 414px;
+	overflow: hidden;
+	padding: 8pt;
+	transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, transform 0.3s;
+	width: 100%;
+}
+
+.custom-notification:hover {
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.custom-notification * {
+	pointer-events: none;
+	user-select: none;
+}
+
+.custom-notification.hidden {
+	opacity: 0;
+}
+
+#notification-container.top-right, #notification-container.bottom-right > .custom-notification.hidden {
+	transform: translateX( 100%);
+}
+
+#notification-container.top-left, #notification-container.bottom-left > .custom-notification.hidden {
+	transform: translateX(-100%);
+}
+
+.notification-color-stripe {
+	width: 3pt;
+}
+
+.notification-color-stripe.error {
+	background-color: #f44336;
+}
+
+.notification-color-stripe.info {
+	background-color: #2196f3;
+}
+
+.notification-color-stripe.success {
+	background-color: #4caf50;
+}
+
+.notification-color-stripe.warning {
+	background-color: #ff9800;
+}
